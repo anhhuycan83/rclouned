@@ -22,6 +22,7 @@ _CONFIG = {
     "interval": 90,
     "dryrun": False,
     "careful": False,
+    "exclude": [],
 }
 
 
@@ -105,6 +106,9 @@ class Sync:
             self.config("folder") + ".rclouned/sync.tmp/src.txt",
             "--exclude",
             ".rclouned/**",
+        ] + [
+            x for y in self.config("exclude") for x in ["--exclude", y]
+        ] + [
             self.config("remote") + ":" + self.config("subdir"),
             self.config("folder"),
         ]
