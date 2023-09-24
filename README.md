@@ -38,3 +38,27 @@ That works like this:
 4. Modify the configuration file. See the example.
 5. Run rclouned using `rclouned {localdir}`, for daemon mode add `-d`.
 6. Check the logs for success.
+
+### My use
+create a bash file:
+rclone_macos_log=/Users/huy/rclone.macos.log
+/usr/local/bin/python3 /Users/huy/working/refer/rclouned/sync.py /Users/huy/sync > $rclone_macos_log 2>&1
+cp $rclone_macos_log /Users/huy/sync/logs/macos
+
+### My Modification
+- Add missing config.yaml
+- Remove the loop running so the "interval" setting on the config file is not used.
+- Add scripts/configs for running on crontab (linux) and schtasks (windows)
+
+### Special note
+- This approach will create the new directory beside the sync folder. Ex:
+sync/
+  some-sub-folder
+sync.rclouned/ <== create automatically, store some internal files used for this tool
+  some-files
+- This tool is for single used only. We have to do more modification to make it be able to run on multi machines.
+
+### Runtime requirements
+Python > 3.10
+- Windows: must be set the task run at the SYSTEM Account
+- Linux: crontab -e

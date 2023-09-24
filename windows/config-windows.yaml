@@ -1,0 +1,5 @@
+remote: "gdrive"
+subdir: "sync"
+interval: 300
+rclone_full_path: "c:/ProgramData/chocolatey/bin/rclone.exe"
+rclone_config_file: "c:/Users/phamquochuy/AppData/Roaming/rclone/rclone.conf"

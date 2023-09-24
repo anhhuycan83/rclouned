@@ -1,0 +1,5 @@
+remote: "gdrive"
+subdir: "sync"
+interval: 300
+rclone_full_path: "/usr/local/bin/rclone"
+rclone_config_file: "/Users/huy/.config/rclone/rclone.conf"
